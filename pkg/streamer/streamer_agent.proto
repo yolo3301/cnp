@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package streamer;
+
+message KeyValue {
+    string key = 1;
+    string value = 2;
+}
+
+message StreamNotificationRequest {
+    enum Status {
+        OK = 0;
+        INTERNAL_ERROR = 1;
+        BAD_REQUEST = 2;
+    }
+    string request_id = 1;
+    bool first = 2;
+    int32 final_status = 3;
+    bytes agent_note = 4;
+    HttpRequestInfo request = 5;
+}
+
+message HttpRequestInfo {
+    message Payload {
+        int64 final_size = 1;
+        string sha256_hash = 2;
+    }
+    string method = 1;
+    string req_uri = 2;
+    repeated KeyValue header = 3;
+    Payload payload = 4;
+}
+
+message StreamNotificationResult {
+    bytes agent_note = 1;
+    HttpResponseInfo response = 2;
+    DropTarget drop_target = 3;
+}
+
+message DropTarget {
+    message FileTarget {
+        string path = 1;
+    }
+    FileTarget file_target = 1;
+}
+
+message HttpResponseInfo {
+    message Payload {
+        message FileObject {
+            string path = 1;
+        }
+        FileObject file_object = 1;
+    }
+    int32 http_status = 1;
+    repeated KeyValue header = 2;
+    Payload payload = 3;
+}
+
+service StreamerAgent {
+    rpc OnNotification(StreamNotificationRequest) returns (StreamNotificationResult) {}
+}
