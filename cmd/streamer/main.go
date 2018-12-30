@@ -25,6 +25,7 @@ var (
 )
 
 func main() {
+	flag.Parse()
 	if *root == "" {
 		log.Fatal("storage_root must be specified.")
 	}

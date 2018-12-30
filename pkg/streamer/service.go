@@ -45,8 +45,8 @@ func loadConfig(cfgPath string) (*Config, error) {
 
 func (s *Service) registerRoutes(router *mux.Router) {
 	r := router.PathPrefix("/streamer").Subrouter()
-	r.PathPrefix("/uploads").HandlerFunc(s.handleUpload)
-	r.PathPrefix("/downloads").HandlerFunc(s.handleDownload)
+	r.PathPrefix("/uploads").HandlerFunc(s.handleUpload).Methods(http.MethodPost, http.MethodPut, http.MethodPatch)
+	r.PathPrefix("/downloads").HandlerFunc(s.handleDownload).Methods(http.MethodGet)
 }
 
 func (s *Service) handleUpload(w http.ResponseWriter, r *http.Request) {
