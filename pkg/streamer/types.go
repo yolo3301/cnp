@@ -8,10 +8,10 @@ type Storage interface {
 }
 
 type Config struct {
-	ServiceMap ServiceMap `yaml:"serviceMap,omitempty"`
+	ServiceMaps map[string]ServiceConfig `yaml:"serviceMaps,omitempty"`
 }
 
-type ServiceMap struct {
+type ServiceConfig struct {
 	RoutePrefix string `yaml:"routePrefix,omitempty"`
 	AgentTarget string `yaml:"agentTarget,omitempty"`
 }

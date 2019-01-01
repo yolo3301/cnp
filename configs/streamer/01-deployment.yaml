@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamer
+  labels:
+    app: streamer
+  namespace: cnp-streamer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: streamer
+  template:
+    metadata:
+      labels:
+        app: streamer
+    spec:
+      containers:
+      - name: streamer
+        image: gcr.io/cshou-playground/cnp/streamer:0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        command: ["./streamer"]
+        args: ["--config_path=/app/config.yaml", "--port=8080", "--storage_root=/mnt"]
+        volumeMounts:
+          - name: my-pvc-nfs
+            mountPath: "/mnt"
+      volumes:
+      - name: my-pvc-nfs
+        persistentVolumeClaim:
+          claimName: nfs

@@ -17,7 +17,7 @@ var agentPort = flag.Int("agent_port", 8180, "The agent server port.")
 
 func main() {
 	flag.Parse()
-	lis, err := net.Listen("tcp", fmt.Sprintf("%d", *agentPort))
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *agentPort))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}

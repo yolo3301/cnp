@@ -1,0 +1,4 @@
+serviceMaps:
+  placeholder-service:
+    routePrefix: do-not-use
+    agentTarget: placeholder-service:port

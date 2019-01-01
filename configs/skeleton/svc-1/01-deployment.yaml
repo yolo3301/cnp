@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skeleton-svc-1
+  labels:
+    app: skeleton-svc-1
+  namespace: cnp-skeleton
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: skeleton-svc-1
+  template:
+    metadata:
+      labels:
+        app: skeleton-svc-1
+    spec:
+      containers:
+      - name: skeleton-svc
+        image: gcr.io/cshou-playground/cnp/skeleton:0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8180
+        command: ["./skeleton"]
+        args: ["--agent_port=8180"]

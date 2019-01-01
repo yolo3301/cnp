@@ -8,5 +8,6 @@ RUN cd /go/src/github.com/yolo3301/cnp && go build -v -i -o ./bin/streamer ./cmd
 FROM alpine
 WORKDIR /app
 COPY --from=build-env /go/src/github.com/yolo3301/cnp/bin/streamer /app/
+COPY --from=build-env /go/src/github.com/yolo3301/cnp/configs/streamer/config.yaml /app/
 EXPOSE 8080
 CMD ["./streamer"]

@@ -1,0 +1,12 @@
+# build stage
+FROM golang:alpine AS build-env
+ADD . /go/src/github.com/yolo3301/cnp
+RUN apk add --update alpine-sdk
+RUN cd /go/src/github.com/yolo3301/cnp && go build -v -i -o ./bin/skeleton ./cmd/skeleton
+
+# final stage
+FROM alpine
+WORKDIR /app
+COPY --from=build-env /go/src/github.com/yolo3301/cnp/bin/skeleton /app/
+EXPOSE 8180
+CMD ["./skeleton"]
