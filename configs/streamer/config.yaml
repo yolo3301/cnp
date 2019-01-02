@@ -2,3 +2,6 @@ serviceMaps:
   placeholder-service:
     routePrefix: do-not-use
     agentTarget: placeholder-service:port
+  skeleton-svc-1:
+    routePrefix: skeleton-svc-1/
+    agentTarget: skeleton-svc-1.cnp-skeleton.svc.cluster.local:8180

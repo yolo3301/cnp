@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: streamer
-        image: gcr.io/cshou-playground/cnp/streamer:0.1
+        image: gcr.io/cshou-playground/cnp/streamer:0.2
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
