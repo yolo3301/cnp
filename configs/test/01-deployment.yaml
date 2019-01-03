@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load-gen
+  labels:
+    app: load-gen
+  namespace: cnp-tester
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: load-gen
+  template:
+    metadata:
+      labels:
+        app: load-gen
+    spec:
+      containers:
+      - name: load-gen
+        image: appropriate/curl
+        imagePullPolicy: Always
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do echo curling at $(date); curl 35.230.47.55/streamer/downloads/skeleton-svc-1/svc-1-tst2; sleep $(shuf -i 2-10 -n 1); done"]
