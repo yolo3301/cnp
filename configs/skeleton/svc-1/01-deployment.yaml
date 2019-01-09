@@ -17,9 +17,10 @@ spec:
     spec:
       containers:
       - name: skeleton-svc
-        image: gcr.io/cshou-playground/cnp/skeleton:0.1
+        image: gcr.io/cshou-playground/cnp/skeleton:0.2
         imagePullPolicy: Always
         ports:
         - containerPort: 8180
+        - containerPort: 8280
         command: ["./skeleton"]
-        args: ["--agent_port=8180"]
+        args: ["--agent_port=8180", "--http_port=8280", "--streamer_host=35.230.47.55", "--service_name=skeleton-svc-1"]

@@ -81,6 +81,14 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:b521f10a2d8fa85c04a8ef4e62f2d1e14d303599a55d64dabf9f5a02f84d35eb"
+  name = "golang.org/x/sync"
+  packages = ["errgroup"]
+  pruneopts = "UT"
+  revision = "37e7f081c4d4c64e13b10787722085407fe5d15f"
+
+[[projects]]
+  branch = "master"
   digest = "1:10405139b45e3a97a3842c93984710e30466eb933545f219ad3f5e45246973b4"
   name = "golang.org/x/sys"
   packages = [
@@ -178,6 +186,7 @@
     "github.com/gorilla/mux",
     "github.com/sirupsen/logrus",
     "golang.org/x/net/context",
+    "golang.org/x/sync/errgroup",
     "google.golang.org/grpc",
     "gopkg.in/yaml.v2",
   ]
