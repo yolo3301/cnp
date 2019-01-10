@@ -5,3 +5,6 @@ serviceMaps:
   skeleton-svc-1:
     routePrefix: skeleton-svc-1/
     agentTarget: skeleton-svc-1.cnp-skeleton.svc.cluster.local:8180
+  skeleton-svc-2:
+    routePrefix: skeleton-svc-2/
+    agentTarget: skeleton-svc-2.cnp-skeleton.svc.cluster.local:8180

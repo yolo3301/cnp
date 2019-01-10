@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: skeleton-svc-2
+  name: skeleton-svc-2
+  namespace: cnp-skeleton
+spec:
+  ports:
+  - port: 8180
+    name: agent-port
+    protocol: TCP
+    targetPort: 8180
+  - port: 8280
+    name: http-port
+    protocol: TCP
+    targetPort: 8280
+  selector:
+    app: skeleton-svc-2
