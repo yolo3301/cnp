@@ -15,5 +15,6 @@ spec:
     name: http-port
     protocol: TCP
     targetPort: 8280
+  type: NodePort
   selector:
     app: skeleton-svc-2

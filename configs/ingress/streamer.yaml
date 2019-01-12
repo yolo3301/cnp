@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: streamer
+  namespace:  cnp-streamer
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /streamer
+            backend:
+              serviceName: streamer
+              servicePort: 80

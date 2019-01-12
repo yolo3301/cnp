@@ -20,4 +20,4 @@ spec:
         image: appropriate/curl
         imagePullPolicy: Always
         command: ["/bin/sh"]
-        args: ["-c", "while true; do echo curling at $(date); curl 35.230.47.55/streamer/downloads/skeleton-svc-1/svc-1-tst2; sleep $(shuf -i 2-10 -n 1); done"]
+        args: ["-c", "while true; do echo curling at $(date); curl 35.230.49.36/streamer/downloads/skeleton-svc-1/svc-1-tst2; sleep $(shuf -i 2-10 -n 1); done"]

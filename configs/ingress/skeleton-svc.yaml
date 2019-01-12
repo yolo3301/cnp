@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: skeleton-svc-1
+  namespace:  cnp-skeleton
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /skeleton-svc-1
+            backend:
+              serviceName: skeleton-svc-1
+              servicePort: 8280
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: skeleton-svc-2
+  namespace:  cnp-skeleton
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /skeleton-svc-2
+            backend:
+              serviceName: skeleton-svc-2
+              servicePort: 8280

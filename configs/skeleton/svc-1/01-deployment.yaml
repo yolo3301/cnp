@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: skeleton-svc
-        image: gcr.io/cshou-playground/cnp/skeleton:0.2
+        image: gcr.io/cshou-playground/cnp/skeleton:0.4
         imagePullPolicy: Always
         ports:
         - containerPort: 8180
